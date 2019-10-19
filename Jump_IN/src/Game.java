@@ -98,13 +98,13 @@ public class Game {
 		if(isRabbit(name)) {
 			Direction direction = readDirection(command.getSecondWord());
 			if(name.equals("rabbit1")) {
-				move = board.jumpTo(board.getRabbit(1), direction);
+				move = board.jumpTo(board.getRabbit(0), direction);
 			}
 			else if(name.equals("rabbit2")) {
-				move = board.jumpTo(board.getRabbit(2), direction);
+				move = board.jumpTo(board.getRabbit(1), direction);
 			}
 			else if(name.equals("rabbit3")) {
-				move = board.jumpTo(board.getRabbit(3), direction);
+				move = board.jumpTo(board.getRabbit(2), direction);
 			}
 		}
 		
@@ -157,7 +157,7 @@ public class Game {
 		}
 		else if(commandWord.equals("move")) {
 			movePieces(command);
-			if(board.getCToWin()==0) {
+			if(board.isWin()) {
 				System.out.println("win!");
 				return wantToQuit = true;
 			}
